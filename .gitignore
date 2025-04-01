@@ -1,15 +1,18 @@
-# Eclipse specific
+# Eclipse specific files
 .project
 .classpath
 .settings/
+
+# Build output
 bin/
+build/
+target/
 
 # Maven
-target/
 pom.xml.tag
 *.releaseBackup
 
-# IntelliJ
+# IntelliJ IDEA
 .idea/
 *.iml
 
@@ -20,10 +23,14 @@ pom.xml.tag
 *.log
 logs/
 
-# Config files with secrets
-/src/main/resources/config.properties
-src/main/resources/config.properties
-
 # System files
 .DS_Store
 Thumbs.db
+
+
+webapp/WEB-INF/lib/
+webapp/WEB-INF/classes/
+
+
+
+src/main/webapp/WEB-INF/classes/config.properties
