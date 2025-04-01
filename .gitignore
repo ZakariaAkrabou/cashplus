@@ -27,10 +27,9 @@ logs/
 .DS_Store
 Thumbs.db
 
-
+# Web application temporary files
 webapp/WEB-INF/lib/
 webapp/WEB-INF/classes/
 
-
-
+# Sensitive configuration files
 src/main/webapp/WEB-INF/classes/config.properties
