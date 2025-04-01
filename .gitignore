@@ -1,0 +1,29 @@
+# Eclipse specific
+.project
+.classpath
+.settings/
+bin/
+
+# Maven
+target/
+pom.xml.tag
+*.releaseBackup
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# Config files with secrets
+/src/main/resources/config.properties
+src/main/resources/config.properties
+
+# System files
+.DS_Store
+Thumbs.db

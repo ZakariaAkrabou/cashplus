@@ -1,14 +1,14 @@
 package com.orange.cashplus.model;
 import java.io.Serializable;
 
-public class User implements Serializable {
-	 private static final long serialVersionUID = 1L; 
+public class User  {
+	
     private int id;
     private String firstname;
     private String lastname;
     private String email;
-    private transient String password;  // Won't be serialized
-    private transient String token;     // Won't be serialized
+    private String password;  
+    private String token;    
     private boolean isVerified;
 
     
