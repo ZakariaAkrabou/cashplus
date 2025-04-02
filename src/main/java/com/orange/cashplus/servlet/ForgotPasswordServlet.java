@@ -8,17 +8,10 @@ import java.io.IOException;
 
 @WebServlet("/forgot-password")
 public class ForgotPasswordServlet extends HttpServlet {
-	 protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 	            throws ServletException, IOException {
-	        String token = request.getParameter("token");
 	        
-	        if (token == null || !UserDAO.isValidResetToken(token)) {
-	            request.setAttribute("error", "Invalid or expired reset link");
-	            request.getRequestDispatcher("/views/forgot-password.jsp").forward(request, response);
-	            return;
-	        }
-	        
-	        request.setAttribute("token", token);
+	       
 	        request.getRequestDispatcher("/views/forgot-password.jsp").forward(request, response);
 	    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 

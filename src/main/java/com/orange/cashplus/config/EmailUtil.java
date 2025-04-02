@@ -1,40 +1,22 @@
 package com.orange.cashplus.config;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-public class EmailUtil {
-    
-    private static final Properties properties = loadProperties();
-    private static final String SENDER_EMAIL = properties.getProperty("email.sender");
-    private static final String SENDER_PASSWORD = properties.getProperty("email.password");
-    private static final String APP_BASE_URL = properties.getProperty("app.base.url");
 
-    private static Properties loadProperties() {
-        Properties props = new Properties();
-        try (InputStream input = EmailUtil.class.getClassLoader().getResourceAsStream("config.properties")) {
-            if (input == null) {
-                System.err.println("Error: config.properties file not found in classpath.");
-                throw new RuntimeException("Unable to find config.properties");
-            }
-            props.load(input);
-            System.out.println("Properties loaded successfully.");
-        } catch (IOException ex) {
-            System.err.println("Error loading config.properties: " + ex.getMessage());
-            throw new RuntimeException("Failed to load configuration file", ex);
-        }
-        return props;
-    }
+
+public class EmailUtil {
+
+    private static final String SENDER_EMAIL = ""; 
+    private static final String SENDER_PASSWORD = ""; 
+    private static final String APP_BASE_URL = "http://localhost:8080/cashplus";
 
     public static boolean sendVerificationEmail(String recipient, String token) {
         String subject = "Verify Your Email";
         String verificationLink = APP_BASE_URL + "/verify?token=" + token;
         String body = "Hello,\n\nClick the link below to verify your email:\n" + verificationLink +
                      "\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nCashPlus Team";
-
+        
         return sendEmail(recipient, subject, body);
     }
 
@@ -43,7 +25,7 @@ public class EmailUtil {
         String resetLink = APP_BASE_URL + "/reset-password?token=" + token;
         String body = "Hello,\n\nClick the link below to reset your password:\n" + resetLink +
                      "\n\nThis link will expire in 24 hours.\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nCashPlus Team";
-
+        
         return sendEmail(recipient, subject, body);
     }
 

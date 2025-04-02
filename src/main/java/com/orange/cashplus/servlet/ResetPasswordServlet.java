@@ -35,9 +35,10 @@ public class ResetPasswordServlet extends HttpServlet {
             return;
         }
         
-       
         if (UserDAO.updatePasswordWithToken(token, password)) {
-            request.setAttribute("message", "Password updated successfully");
+           
+            HttpSession session = request.getSession();
+            session.setAttribute("message", "Password updated successfully. Please login.");
             response.sendRedirect(request.getContextPath() + "/login");
         } else {
             request.setAttribute("error", "Failed to update password. Link may be expired.");

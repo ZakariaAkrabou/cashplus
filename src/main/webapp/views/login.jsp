@@ -58,6 +58,21 @@
                     <h2 class="text-3xl font-bold">Welcome Back</h2>
                     <p class="text-gray-400 text-center max-w-sm mt-2">Enter your email and password to access your account</p>
                 </div>
+                		<c:if test="${not empty message}">
+    						<div class="bg-green-700 text-white p-4 rounded-xl mb-4 flex items-center">
+        						<i class="fas fa-check-circle mr-2"></i>
+        						<span>${message}</span>
+   							</div>
+						</c:if>
+
+
+					<c:if test="${not empty error}">
+    					<div class="bg-red-700 text-white p-4 rounded-xl mb-4 flex items-center">
+        					<i class="fas fa-exclamation-circle mr-2"></i>
+        					<span>${error}</span>
+    					</div>
+					</c:if>
+					
                 <form action="login" method="post" class="space-y-4">
                     <div class="relative">
                         <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-[#C3D2D7] text-lg"></i>
